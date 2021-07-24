@@ -25,7 +25,7 @@ npm install -g pm2 nodemon
 npm install
 
 clear && echo "Setting up mjpeg-streamer"
-raspi-config nonint do_camera 1
+raspi-config nonint do_camera 0
 apt-get install -y cmake libjpeg8-dev gcc g++
 rm -rf mjpg-streamer
 git clone https://github.com/jacksonliam/mjpg-streamer.git
