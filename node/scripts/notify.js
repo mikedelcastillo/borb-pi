@@ -25,5 +25,6 @@ const ipAddresses = getIPs()
 sendMessage(ipAddresses.map(([name, ip]) => [
     name,
     `http://${ip}/`,
+    `http://${ip}/camera/?action=snapshot`,
     `http://${ip}/camera/?action=stream`,
 ].join("\n")).join("\n"))
