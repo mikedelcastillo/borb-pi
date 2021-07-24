@@ -14,6 +14,7 @@ apt-get autoremove -y
 
 clear && echo "Install linux dependencies"
 apt-get install -y git --fix-missing
+apt-get install -y nginx --fix-missing
 
 clear && echo "Install node"
 curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
@@ -34,10 +35,14 @@ make
 make install
 cd ../../
 
+clear && echo "Setup nginx"
+npm run nginx
+
 clear && echo "Setting up pm2"
 PM2_USER="pi"
 pm2 del all
 pm2 start "npm run camera-hd" --name "camera"
+pm2 start "npm run server" --name "server" --user $PM2_USER
 pm2 startup
 pm2 save
 pm2 status
