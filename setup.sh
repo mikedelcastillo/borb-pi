@@ -37,7 +37,7 @@ cd ../../
 echo "Setting up pm2"
 PM2_USER="pi"
 pm2 del all
-pm2 start "npm run camera-hd" --name "camera" -u $PM2_USER
+pm2 start "npm run camera-hd" --name "camera"
 pm2 startup
 pm2 save
 pm2 status
