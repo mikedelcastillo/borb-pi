@@ -22,3 +22,22 @@ rm n
 
 echo "Install node dependencies"
 npm install -g pm2 nodemon
+npm install
+
+echo "Setting up mjpeg-streamer"
+raspi-config nonint do_camera 1
+apt-get install -y cmake libjpeg8-dev gcc g++
+rm -rf mjpg-streamer
+git clone https://github.com/jacksonliam/mjpg-streamer.git
+cd ./mjpg-streamer/mjpg-streamer-experimental/
+make
+make install
+cd ../../
+
+echo "Setting up pm2"
+PM2_USER="pi"
+pm2 del all
+pm2 start "npm run camera-hd" --name "camera" -u $PM2_USER
+pm2 startup
+pm2 save
+pm2 status
