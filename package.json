@@ -10,8 +10,7 @@
     "camera-hd": "npm run mjpg-streamer -- -i 'input_uvc.so -d /dev/video-pi -r 1920x1080 -q 30' -o 'output_http.so -w ./www -p 5001'",
     "camera-ex-sd": "npm run mjpg-streamer -- -i 'input_uvc.so -d /dev/video-external -r 640x360 -q 24' -o 'output_http.so -w ./www -p 5002'",
     "camera-ex-hd": "npm run mjpg-streamer -- -i 'input_uvc.so -d /dev/video-external -r 1920x1080 -q 30' -o 'output_http.so -w ./www -p 5003'",
-    "nginx": "node ./node/scripts/n
-    ginx",
+    "nginx": "node ./node/scripts/nginx",
     "server": "node ./node/server",
     "setup": "bash setup.sh"
   },

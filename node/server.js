@@ -59,6 +59,38 @@ const init = async () => {
             },
         },
     })
+    
+    hapiServer.route({
+        method: 'GET',
+        path: '/api/restart',
+        config: {
+            handler: async (request, h) => {
+                const shell = require('shelljs')
+                return shell.exec("pm2 restart all --update-env")
+            },
+            validate: {
+                query: Joi.object({
+                    
+                }),
+            },
+        },
+    })
+    
+    hapiServer.route({
+        method: 'GET',
+        path: '/api/reboot',
+        config: {
+            handler: async (request, h) => {
+                const shell = require('shelljs')
+                return shell.exec("reboot")
+            },
+            validate: {
+                query: Joi.object({
+                    
+                }),
+            },
+        },
+    })
 
     await hapiServer.start()
 }

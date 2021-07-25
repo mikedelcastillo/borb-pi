@@ -48,19 +48,13 @@ clear && echo "Setup nginx"
 npm run nginx
 
 clear && echo "Setting up pm2"
-PM2_USER="pi"
-SLEEP_RETRY=300
 pm2 del all
+
+SLEEP_RETRY=300
 pm2 start "npm run camera-sd && sleep $SLEEP_RETRY" --name "camera-sd"
 pm2 start "npm run camera-ex-sd && sleep $SLEEP_RETRY" --name "camera-ex-sd"
 
-# Disable HD cameras
-pm2 start "npm run camera-hd && sleep $SLEEP_RETRY" --name "camera-hd"
-pm2 start "npm run camera-ex-hd && sleep $SLEEP_RETRY" --name "camera-ex-hd"
-pm2 stop "camera-hd"
-pm2 stop "camera-ex-hd"
-
-pm2 start "npm run server" --name "server" --user $PM2_USER
+pm2 start "npm run server" --name "server"
 
 pm2 startup
 pm2 save
