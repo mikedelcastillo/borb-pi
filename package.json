@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "mjpg-streamer": "cd ./mjpg-streamer/mjpg-streamer-experimental/ && ./mjpg_streamer",
-    "camera": "npm run mjpg-streamer -- -i 'input_uvc.so -r 640x360 -q 24' -o 'output_http.so -w ./www -p 5000'",
-    "camera-hd": "npm run mjpg-streamer -- -i 'input_uvc.so -r 1920x1080 -q 60' -o 'output_http.so -w ./www -p 5000'",
+    "camera-sd": "npm run mjpg-streamer -- -i 'input_uvc.so -d /dev/video0 -r 640x360 -q 24' -o 'output_http.so -w ./www -p 5000'",
+    "camera-hd": "npm run mjpg-streamer -- -i 'input_uvc.so -d /dev/video0 -r 1920x1080 -q 30' -o 'output_http.so -w ./www -p 5001'",
+    "camera-ex": "npm run mjpg-streamer -- -i 'input_uvc.so -d /dev/video1 -r 640x360 -q 24' -o 'output_http.so -w ./www -p 5002'",
     "nginx": "node ./node/scripts/nginx",
     "server": "node ./node/server",
     "setup": "bash setup.sh"

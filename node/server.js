@@ -9,7 +9,7 @@ const IOServer = require("socket.io").Server
 
 require("./scripts/notify")
 
-const {CAMERA_PORT, SERVER_PORT} = process.env
+const {CAMERA_SD_PORT, SERVER_PORT} = process.env
 
 const hapiServer = Hapi.server({
     port: SERVER_PORT,

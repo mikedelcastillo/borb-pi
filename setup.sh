@@ -26,7 +26,7 @@ npm install -g pm2 nodemon
 npm install
 
 clear && echo "Setting up mjpeg-streamer"
-raspi-config nonint do_camera 0
+raspi-config nonint do_camera 0 # Enable the RPI camera
 apt-get install -y cmake libjpeg8-dev gcc g++
 rm -rf mjpg-streamer
 git clone https://github.com/jacksonliam/mjpg-streamer.git
@@ -41,8 +41,21 @@ npm run nginx
 clear && echo "Setting up pm2"
 PM2_USER="pi"
 pm2 del all
-pm2 start "npm run camera-hd" --name "camera"
+pm2 start "npm run camera-sd" --name "camera-sd"
+pm2 start "npm run camera-ex-sd" --name "camera-ex-sd"
+
+# Stop camera processes if device doesnt exist
+[[ -e "/dev/video0" ]] || pm2 stop "camera-sd"
+[[ -e "/dev/video1" ]] || pm2 stop "camera-ex"
+
+# Disable HD cameras
+pm2 start "npm run camera-hd" --name "camera-hd"
+pm2 start "npm run camera-ex-hd" --name "camera-ex-hd"
+pm2 stop "camera-hd"
+pm2 stop "camera-ex-hd"
+
 pm2 start "npm run server" --name "server" --user $PM2_USER
+
 pm2 startup
 pm2 save
 pm2 status
