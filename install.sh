@@ -6,7 +6,13 @@ else
     exit 1
 fi
 
-bash ./uninstall.sh
+git pull
+git reset --hard HEAD
+
+if [ $1 = "reset" ] 
+then
+    bash ./uninstall.sh
+fi
 
 bash ./scripts/system.sh up
 bash ./scripts/node.sh up
