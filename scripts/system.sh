@@ -1,9 +1,9 @@
 apt update -y --fix-missing
 apt upgrade -y
 
-depends=(neofetch git curl nginx)
+depends=(neofetch curl nginx)
 
-if [ $1 = "up" ] 
+if [ "$1" = "up" ]
 then
     for depend in ${depends[*]}
     do
@@ -11,7 +11,7 @@ then
     done
 fi
 
-if [ $1 = "down" ] 
+if [ "$1" = "down" ] 
 then
     for depend in ${depends[*]}
     do

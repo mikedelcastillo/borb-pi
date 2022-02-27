@@ -1,7 +1,7 @@
 depends=(n pm2 nodemon)
 version=16
 
-if [ $1 = "up" ] 
+if [ "$1" = "up" ] 
 then
     # Install n
     cd ~
@@ -19,7 +19,7 @@ then
     n use ${version}
 fi
 
-if [ $1 = "down" ] 
+if [ "$1" = "down" ] 
 then
     # Delete node
     rm n ${version}
