@@ -9,7 +9,7 @@ fi
 git reset --hard HEAD
 git pull
 
-if [ $1 = "reset" ] 
+if [ "$1" = "reset" ]
 then
     bash ./uninstall.sh
 fi
