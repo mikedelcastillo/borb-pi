@@ -16,7 +16,6 @@ then
 
     # Install node
     n install ${version}
-    n use ${version}
 fi
 
 if [ "$1" = "down" ] 

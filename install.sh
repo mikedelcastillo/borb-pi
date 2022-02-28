@@ -16,3 +16,4 @@ fi
 
 bash ./scripts/system.sh up
 bash ./scripts/node.sh up
+bash ./scripts/camera.sh up
