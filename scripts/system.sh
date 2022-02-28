@@ -1,7 +1,7 @@
 apt update -y --fix-missing
 apt upgrade -y
 
-depends=(neofetch curl nginx)
+depends=(neofetch curl nginx cmake libjpeg8-dev gcc g++)
 
 if [ "$1" = "up" ]
 then
