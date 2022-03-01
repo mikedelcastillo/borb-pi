@@ -7,8 +7,8 @@ then
     sudo -u $user rm -rf mjpg-streamer
     sudo -u $user git clone https://github.com/jacksonliam/mjpg-streamer.git
     cd ./mjpg-streamer/mjpg-streamer-experimental/
-    sudo -u $user make
-    sudo -u $user make install
+    make
+    make install
     cd ../../
 fi
 

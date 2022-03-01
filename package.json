@@ -4,7 +4,9 @@
   "description": "```bash sudo apt install -y git git clone https://github.com/mikedelcastillo/borb-pi.git cd borb-pi sudo bash ./install.sh ```",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "mjpg-streamer": "cd ./mjpg-streamer/mjpg-streamer-experimental/ && ./mjpg_streamer",
+    "camera-0": "npm run mjpg-streamer -- -i 'input_uvc.so -d /dev/video-external -r 1920x1080 -q 30' -o 'output_http.so -w ./www -p 5000'",
+    "camera-1": "npm run mjpg-streamer -- -i 'input_uvc.so -d /dev/video-external -r 1920x1080 -q 30' -o 'output_http.so -w ./www -p 5001'"
   },
   "repository": {
     "type": "git",

@@ -6,6 +6,7 @@ else
     exit 1
 fi
 
-bash ./scripts/system.sh down
-bash ./scripts/node.sh down
+bash ./scripts/pm2.sh down
 bash ./scripts/camera.sh down
+bash ./scripts/node.sh down
+bash ./scripts/system.sh down
