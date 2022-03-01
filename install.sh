@@ -6,8 +6,8 @@ else
     exit 1
 fi
 
-git reset --hard HEAD
-git pull
+sudo -u $user git reset --hard HEAD
+sudo -u $user git pull
 
 if [ "$1" = "reset" ]
 then
