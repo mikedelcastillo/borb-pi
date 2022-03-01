@@ -1,15 +1,13 @@
-user=pi
-
-sudo -u $user pm2 status
-sudo -u $user pm2 stop all
-sudo -u $user pm2 del all
+sudo -u $USER pm2 status
+sudo -u $USER pm2 stop all
+sudo -u $USER pm2 del all
 
 if [ "$1" = "up" ] 
 then
-    sudo -u $user pm2 del all
-    sudo -u $user pm2 start "npm run camera-0" --name "camera-0"
-    sudo -u $user pm2 start "npm run camera-1" --name "camera-1"
-    sudo -u $user pm2 save
+    sudo -u $USER pm2 del all
+    sudo -u $USER pm2 start "npm run camera-0" --name "camera-0"
+    sudo -u $USER pm2 start "npm run camera-1" --name "camera-1"
+    sudo -u $USER pm2 save
     pm2 startup
 fi
 
@@ -19,4 +17,4 @@ then
     pm2 unstartup
 fi
 
-sudo -u $user pm2 status
+sudo -u $USER pm2 status

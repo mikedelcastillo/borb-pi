@@ -6,10 +6,10 @@ else
     exit 1
 fi
 
-user=pi
 
-sudo -u $user git reset --hard HEAD
-sudo -u $user git pull
+
+sudo -u $USER git reset --hard HEAD
+sudo -u $USER git pull
 
 if [ "$1" = "reset" ]
 then
