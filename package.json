@@ -1,0 +1,19 @@
+{
+  "name": "borb-pi",
+  "version": "2.0.0",
+  "description": "```bash sudo apt install -y git git clone https://github.com/mikedelcastillo/borb-pi.git cd borb-pi sudo bash ./install.sh ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikedelcastillo/borb-pi.git"
+  },
+  "author": "Mike del Castillo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikedelcastillo/borb-pi/issues"
+  },
+  "homepage": "https://github.com/mikedelcastillo/borb-pi#readme"
+}

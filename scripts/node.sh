@@ -1,12 +1,12 @@
 depends=(n pm2 nodemon)
 version=16
+user=pi
 
 if [ "$1" = "up" ] 
 then
     # Install n
-    cd ~
-    curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
-    rm n
+    sudo -u $user curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+    sudo -u $user rm n
 
     # Install node dependencies
     for depend in ${depends[*]}
@@ -21,7 +21,7 @@ fi
 if [ "$1" = "down" ] 
 then
     # Delete node
-    rm n ${version}
+    sudo -u $user rm n ${version}
 
     # Install node dependencies
     for depend in ${depends[*]}
