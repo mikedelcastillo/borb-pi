@@ -6,6 +6,8 @@ else
     exit 1
 fi
 
+user=pi
+
 sudo -u $user git reset --hard HEAD
 sudo -u $user git pull
 
