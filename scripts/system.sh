@@ -1,7 +1,7 @@
 apt update -y --fix-missing
 apt upgrade -y
 
-depends=(neofetch curl nginx cmake libjpeg62-turbo-dev gcc g++)
+depends=(neofetch curl nginx cmake libjpeg62-turbo-dev gcc g++ build-essential imagemagick libv4l-dev cmake uvcdynctrl libjpeg8-dev)
 
 if [ "$1" = "up" ]
 then
